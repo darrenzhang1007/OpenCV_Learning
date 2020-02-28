@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
 	namedWindow("input", WINDOW_AUTOSIZE);
 	imshow("input", src);
 
-	// 直接读取图像像素
+	// 直接读取图像像素：速度慢
 	int height = src.rows;
 	int width = src.cols;
 	int ch = src.channels();
@@ -21,8 +21,8 @@ int main(int argc, char** argv) {
 		for (int row = 0; row < height; row++) {
 			for (int col = 0; col < width; col++) {
 				if (ch == 3) {
-					Vec3b bgr = src.at<Vec3b>(row, col);
-					bgr[0] = 255 - bgr[0];
+					Vec3b bgr = src.at<Vec3b>(row, col); // 获取3个字节类型的值，先行后列，
+					bgr[0] = 255 - bgr[0]; // 色彩取反 
 					bgr[1] = 255 - bgr[1];
 					bgr[2] = 255 - bgr[2];
 					src.at<Vec3b>(row, col) = bgr;
@@ -37,13 +37,13 @@ int main(int argc, char** argv) {
 	imshow("output", src);
 
 	// 指针读取
-	Mat result = Mat::zeros(src.size(), src.type());
+	Mat result = Mat::zeros(src.size(), src.type()); // 创建一个空白图像
 	int blue = 0, green = 0, red = 0;
 	int gray;
 	for (int c = 0; c < ch; c++) {
-		for (int row = 0; row < height; row++) {
-			uchar* curr_row = src.ptr<uchar>(row);
-			uchar* result_row = src.ptr<uchar>(row);
+		for (int row = 0; row < height; row++) {  
+			uchar* curr_row = src.ptr<uchar>(row); // 获取这一行所有像素点的像素块的首地址；这一行第一个像素的地址
+			uchar* result_row = result.ptr<uchar>(row);
 			for (int col = 0; col < width; col++) {
 				if (ch == 3) {
 					blue = *curr_row++;

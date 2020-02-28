@@ -13,3 +13,5 @@
 /003_mat_numpy/x64/Debug
 /004_rea_wri_pix/rea_wri_pix/x64/Debug
 /004_rea_wri_pix/x64/Debug
+*.db
+*.opendb
