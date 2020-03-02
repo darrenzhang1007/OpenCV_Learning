@@ -27,6 +27,18 @@ int main(int argc, const char *argv[]) {
 	printf("green channel->> mean: %.2f, stddev: %.2f\n", means.at<double>(1, 0), stddev.at<double>(1, 0));
 	printf("red channel->> mean: %.2f, stddev: %.2f\n", means.at<double>(2, 0), stddev.at<double>(2, 0));
 
+	// 将普通图像转为2值图像
+	for (int row = 0; row < src.rows; row++) {
+		for (int col = 0; col < src.cols; col++) {
+			Vec3b bgr = src.at<Vec3b>(row, col);
+			bgr[0] = bgr[0] < means.at<double>(0, 0) ? 0 : 255;
+			bgr[1] = bgr[1] < means.at<double>(1, 0) ? 0 : 255;
+			bgr[2] = bgr[2] < means.at<double>(2, 0) ? 0 : 255;
+			src.at<Vec3b>(row, col) = bgr;
+			
+		}
+	}
+	imshow("binary_result", src);
 
 	waitKey(0);
 	return 0;
