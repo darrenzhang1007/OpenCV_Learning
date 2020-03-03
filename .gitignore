@@ -21,3 +21,11 @@
 /010_Pixel_Value_Statistics/010_Pixel_Value_Statistics/x64/Debug
 /010_Pixel_Value_Statistics/.vs/010_Pixel_Value_Statistics/v14
 /010_Pixel_Value_Statistics/x64/Debug
+/011_norm/.vs/011_norm/v14
+/011_norm/011_norm/x64/Debug
+/011_norm/x64/Debug
+*.suo
+/012_Vedio_Read_Wri/012_Vedio_Read_Wri/x64/Debug
+*.exe
+*.ilk
+*.pdb
