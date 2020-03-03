@@ -6,21 +6,23 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	// 打开摄像头
-	// VideoCapture capture(0); 
+	VideoCapture capture(0); 
 
 	// 打开文件
-	VideoCapture capture;
-	capture.open("H:\\OpenCV_Learning\\012_Vedio_Read_Wri\\vtest.avi");
+	//VideoCapture capture;
+	//capture.open("H:\\OpenCV_Learning\\012_Vedio_Read_Wri\\vtest.avi");
 	if (!capture.isOpened()) {
 		printf("could not read this video file...\n");
 		return -1;
 	}
-	Size S = Size((int)capture.get(CAP_PROP_FRAME_WIDTH),
-		(int)capture.get(CAP_PROP_FRAME_HEIGHT));
+	int w = static_cast<int>(capture.get(CAP_PROP_FRAME_WIDTH));
+	int h = static_cast<int>(capture.get(CAP_PROP_FRAME_HEIGHT));
+	/*Size S = Size((int)capture.get(CAP_PROP_FRAME_WIDTH),
+		(int)capture.get(CAP_PROP_FRAME_HEIGHT));*/
 	int fps = capture.get(CAP_PROP_FPS);
-	int type = static_cast<int>(capture.get(CAP_PROP_FOURCC));
+	int type = VideoWriter::fourcc('m', 'p', '4', 'v');
 	printf("current fps : %d \n, current type : %d \n", fps, type);
-	VideoWriter writer("test.mp4", type, fps, S, true);
+	VideoWriter writer("test.mp4", type, fps, Size(w, h), true);
 
 	Mat frame;
 	namedWindow("camera-demo", WINDOW_AUTOSIZE);
