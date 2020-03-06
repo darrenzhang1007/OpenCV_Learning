@@ -30,3 +30,9 @@
 *.ilk
 *.pdb
 /013_Image_Flip/013_Image_Flip/x64/Debug
+/015_Draw_Geometry/015_Draw_Geometry/x64/Debug
+*.lastbuildstate
+*.tlog
+*.log
+*.obj
+*.idb
