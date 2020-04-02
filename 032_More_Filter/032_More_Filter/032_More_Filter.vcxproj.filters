@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="032_Moer_Filter.cpp">
+    <ClCompile Include="032_More_Filter.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
