@@ -40,7 +40,7 @@ void laplaian_demo(vector<Mat> &pyramid_images, Mat &image) {
 		if (t - 1 < 0) { // 原图
 			pyrUp(pyramid_images[t], dst, image.size()); // 需要指定输出的大小
 			subtract(image, dst, dst);
-			dst = dst + Scalar(127, 127, 127);
+			dst = dst + Scalar(127, 127, 127); // 增加亮度，为了显示效果好，工作中千万不能这么做
 			imshow(format("laplaian_layer_%d", t), dst);
 		}
 		else {
