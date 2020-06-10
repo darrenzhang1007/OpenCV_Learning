@@ -1,0 +1,4 @@
+属性管理器
+* VC++目录：
+D:\OpenCV\opencv\build\include\opencv2
+D:\OpenCV\opencv\build\include
