@@ -15,6 +15,7 @@ net = cv.dnn.readNetFromCaffe(protxt, bin_model)
 # read input data
 image = cv.imread("H:/OpenCV_Learning/122_DNN_Classification/space_shuttle.jpg")
 blob = cv.dnn.blobFromImage(image, 1.0, (224, 224), (104, 117, 123), False, crop=False)
+# 模型输入大小为224 (104,117, 123)数据集的均值
 result = np.copy(image)
 cv.imshow("input", image)
 
