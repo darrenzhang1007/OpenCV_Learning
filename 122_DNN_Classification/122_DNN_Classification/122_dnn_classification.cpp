@@ -29,6 +29,8 @@ int main(int argc, char** argv) {
 
 	// ¼ÓÔØÍøÂç
 	Net net = readNetFromTensorflow(tf_pb_file);
+	net.setPreferableBackend(DNN_BACKEND_OPENCV);
+	net.setPreferableTarget(DNN_TARGET_CPU);
 	if (net.empty()) {
 		printf("read caffe model data failure...\n");
 		return -1;

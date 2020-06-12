@@ -11,6 +11,9 @@ with open("H:/OpenCV_Learning/121_DNN_Load_Layers/googlenet/classification_class
 
 # load CNN model
 net = cv.dnn.readNetFromCaffe(protxt, bin_model)
+net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
+net.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
+
 
 # read input data
 image = cv.imread("H:/OpenCV_Learning/122_DNN_Classification/space_shuttle.jpg")
