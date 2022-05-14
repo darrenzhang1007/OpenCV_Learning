@@ -15,5 +15,6 @@ int main(int argc, char **argv)
 	}
 	imshow("test", img); //显示图像
 	waitKey(0);			 //等待键盘输入
+	destroyAllWindows();
 	return 0;			 //程序结束
 }
