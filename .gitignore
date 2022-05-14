@@ -36,3 +36,11 @@
 *.log
 *.obj
 *.idb
+
+CMakeF*
+CMakeC*
+cmake*
+Makefile
+*sln
+*.vcxproj
+*.filters
